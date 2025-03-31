@@ -1,15 +1,12 @@
 import express from "express";
+import { getHome } from "./controllers/home";
 
 const app = express();
 
 const PORT = process.env.PORT;
 
 //Home Route
-app.get("/", (req, res) => {
-  res.json({
-    message: "Home Route",
-  });
-});
+app.get("/", getHome);
 
 //Get blogs
 app.get("/blogs", (req, res) => {
