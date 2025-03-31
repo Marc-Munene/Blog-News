@@ -1,5 +1,18 @@
 {
   "dependencies": {
     "express": "^5.1.0"
-  }
+  },
+  "name": "server",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "scripts": {
+    "dev": "nodemon --env-file=.env ./src/server.js",
+    "start": "node server.js"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
