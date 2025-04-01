@@ -1,6 +1,6 @@
 import express from "express";
 import { getHome } from "./controllers/home.js";
-import { getBlogs } from "./controllers/blogs.js";
+import { getBlogs, postBlogs } from "./controllers/blogs.js";
 
 const app = express();
 
@@ -13,11 +13,7 @@ app.get("/", getHome);
 app.get("/blogs", getBlogs);
 
 //post blogs
-app.post("/blogs", (req, res) => {
-  res.json({
-    message: "Creating Blogs",
-  });
-});
+app.post("/blogs", postBlogs);
 
 //put blogs
 app.put("/blogs", (req, res) => {
