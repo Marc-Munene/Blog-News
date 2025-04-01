@@ -85,6 +85,12 @@ export const putBlogs = async (req, res) => {
     const article = await Blog.findOneAndUpdate({ _id: blogId }, req.body, {
       new: true,
     });
+
+    res.status(200).json({
+      success: true,
+      message: "Blog updated successfully",
+      data: article,
+    });
   } catch (error) {
     console.log(error);
     res.status(500).json({
