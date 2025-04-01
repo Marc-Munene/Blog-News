@@ -72,21 +72,50 @@ export const postBlogs = async (req, res) => {
     console.log(error);
     res.status(500).json({
       success: false,
-      message: "Internal Server Error",
+      message: "Cannot add blogs",
     });
   }
 };
 
 //put blogs
-export const putBlogs = (req, res) => {
-  res.json({
-    message: "Updating Blogs",
-  });
+export const putBlogs = async (req, res) => {
+  try {
+    const blogId = req.query.id;
+
+    const article = await Blog.findOneAndUpdate({ _id: blogId }, req.body, {
+      new: true,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      success: false,
+      message: "Cannot edit blogs",
+    });
+  }
 };
 
 //delete blogs
-export const deleteBlogs = (req, res) => {
-  res.json({
-    message: "Deleting Blogs",
-  });
+export const deleteBlogs = async (req, res) => {
+  try {
+    const blogId = req.query.id;
+
+    const deleteArticle = await Blog.deleteOne({ _id: blogId });
+
+    if (!deleteArticle) {
+      return res.status(404).json({
+        success: false,
+        message: "Blog not found",
+      });
+    }
+    res.status(200).json({
+      success: true,
+      message: "Blog deleted successfully",
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      success: false,
+      message: "Cannot delete blog",
+    });
+  }
 };
