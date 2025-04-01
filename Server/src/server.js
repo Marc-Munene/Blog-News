@@ -1,5 +1,6 @@
 import express from "express";
-import { getHome } from "./controllers/home";
+import { getHome } from "./controllers/home.js";
+import { getBlogs } from "./controllers/blogs.js";
 
 const app = express();
 
@@ -9,11 +10,7 @@ const PORT = process.env.PORT;
 app.get("/", getHome);
 
 //Get blogs
-app.get("/blogs", (req, res) => {
-  res.json({
-    message: "Getting Blogs ",
-  });
-});
+app.get("/blogs", getBlogs);
 
 //post blogs
 app.post("/blogs", (req, res) => {
