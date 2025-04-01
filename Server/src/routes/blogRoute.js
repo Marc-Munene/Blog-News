@@ -4,7 +4,7 @@ import {
   getBlogs,
   postBlogs,
   putBlogs,
-} from "../controllers/blogs";
+} from "../controllers/blogs.js";
 
 const blogRouter = Router();
 
