@@ -116,6 +116,8 @@ export const deleteBlogs = async (req, res) => {
     res.status(200).json({
       success: true,
       message: "Blog deleted successfully",
+      deleteCount: deleteArticle.deletedCount,
+      data: deleteArticle,
     });
   } catch (error) {
     console.log(error);
