@@ -1,6 +1,11 @@
 import express from "express";
 import { getHome } from "./controllers/home.js";
-import { getBlogs, postBlogs } from "./controllers/blogs.js";
+import {
+  deleteBlogs,
+  getBlogs,
+  postBlogs,
+  putBlogs,
+} from "./controllers/blogs.js";
 
 const app = express();
 
@@ -16,18 +21,10 @@ app.get("/blogs", getBlogs);
 app.post("/blogs", postBlogs);
 
 //put blogs
-app.put("/blogs", (req, res) => {
-  res.json({
-    message: "Updating Blogs",
-  });
-});
+app.put("/blogs", putBlogs);
 
 //delete blogs
-app.delete("/blogs", (req, res) => {
-  res.json({
-    message: "Deleting Blogs",
-  });
-});
+app.delete("/blogs", deleteBlogs);
 
 app.listen(PORT, () => {
   console.log(`working Successfully at port no ${PORT}`);

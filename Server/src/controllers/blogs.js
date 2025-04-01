@@ -12,4 +12,16 @@ export const postBlogs = (req, res) => {
   });
 };
 
-/
+//put blogs
+export const putBlogs = (req, res) => {
+  res.json({
+    message: "Updating Blogs",
+  });
+};
+
+//delete blogs  
+export const deleteBlogs = (req, res) => {
+  res.json({
+    message: "Deleting Blogs",
+  });
+};
