@@ -14,7 +14,7 @@ export const login = async (req, res) => {
 
     const passwordMatch = await compare(password, user.password);
 
-    if (!passwordsMatch) {
+    if (!passwordMatch) {
       throw new Error("Invalid credentials");
     }
     return res.json({
