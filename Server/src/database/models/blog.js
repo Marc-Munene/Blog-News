@@ -8,13 +8,13 @@ const blogSchema = new Schema(
     image: { type: String, required: true },
     content: { type: String, required: true },
     status: { type: String, enum: ["draft", "published"], default: "draft" },
-    Category: { type: Schema.Types.ObjectId, ref: "Category" },
+    category: { type: Schema.Types.ObjectId, ref: "category" },
   },
   {
     timestamps: true,
   }
 );
 
-const Blog = new model("Blog", blogSchema);
+const Blog = new model("blog", blogSchema);
 
 export { Blog };

@@ -1,9 +1,10 @@
 import { Blog } from "../database/models/blog.js";
+import { Category } from "../database/models/category.js";
 
 //Get all blogs
 export const getBlogs = async (req, res) => {
   try {
-    const blogs = await Blog.find();
+    const blogs = await Blog.find().populate("category");
 
     res.status(200).json({
       success: true,
@@ -50,9 +51,9 @@ export const getSingleBlog = async (req, res) => {
 //post blogs
 export const postBlogs = async (req, res) => {
   try {
-    const { title, description, image, content } = req.body;
+    const { title, description, image, content, category } = req.body;
 
-    const blogData = { title, description, image, content };
+    const blogData = { title, description, image, content, category };
 
     const newBlog = await Blog.create(blogData);
 

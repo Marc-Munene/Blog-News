@@ -5,6 +5,6 @@ const catregorySchema = new Schema({
   status: { type: String, enum: ["active", "inactive"], default: "active" },
 });
 
-const Category = new model("Category", catregorySchema);
+const Category = new model("category", catregorySchema);
 
 export { Category };
