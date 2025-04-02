@@ -3,6 +3,7 @@ import { getHome } from "./controllers/home.js";
 import { blogRouter } from "./routes/blogRoute.js";
 import { connectDB } from "./database/config.js";
 import { categoryRouter } from "./routes/categoryRourte.js";
+import { authRouter } from "./routes/authRoute.js";
 
 const app = express();
 
@@ -18,7 +19,7 @@ connectDB();
 app.get("/", getHome);
 
 //Routers
-app.use("/api", blogRouter, categoryRouter);
+app.use("/api", authRouter, blogRouter, categoryRouter);
 
 app.listen(PORT, () => {
   console.log(`working Successfully at port no ${PORT}`);
